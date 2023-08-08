@@ -8,11 +8,13 @@ def index():
   if request.method == "POST":
     name = request.form['name']
     file = open("names.txt", 'a')
-    file.write(name + '\n')
+    file.write(name + '\n') # appends the [name] to the file extra/next line
     file.close()
+    infile = open('names.txt','r') # can omit 'r'
+    lines = infile.readlines()
+    infile.close()
     return render_template('index.html', name=name)
   return render_template('index.html') # for get method
 
 
 app.run(host='0.0.0.0', port=81)
-
