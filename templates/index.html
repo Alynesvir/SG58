@@ -2,18 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>SG58!</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <title>SG58</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}" />
   </head>
   <body>
     <form method="post">
       <label for="name">Name</label>
-      <input type="text" name="name" /> <br>
+      <input type="text" name="name"/><br>
       <input type="submit" value="Sign Up!">
     </form>
     {% for line in lines %}
-    Name: {{ line }}<br>
+    {% if line|length > 3 %}
+      Name: {{ line }}<br>
+    {% endif %}
     {% endfor %}
-
+      
   </body>
 </html>
